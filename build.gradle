@@ -1,0 +1,46 @@
+plugins {
+    // Apply the application plugin to add support for building a CLI application
+    id 'application'
+
+    // Apply the java plugin to add support for Java
+    id 'java'
+}
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation group: 'com.github.Melledy', name: 'LunarCore', version: 'development-SNAPSHOT'
+    
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+
+jar {
+    jar {
+        archiveBaseName = 'importer'
+        archiveVersion = ''
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    from('src/main/java') {
+        include '*.xml'
+    }
+
+    getDestinationDirectory().set(file("."))
+}

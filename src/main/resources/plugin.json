@@ -1,0 +1,10 @@
+{
+  "name": "Importer",
+  "description": "A plugin for LunarCore to import characters from https://enka.network/",
+  "version": "1.0.0",
+  "api": 1,
+  "authors": [ "Melledy" ],
+  "mainClass": "dev.melledy.importer.ImporterPlugin",
+  "comments": [
+  ]
+}
